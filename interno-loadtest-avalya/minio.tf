@@ -21,7 +21,7 @@ spec:
   gateways:
   - tj-istio-gateway.istio-system.svc.cluster.local
   hosts:
-  - minio-${var.namespace_tools}.saj6.softplan.com.br
+  - minio-loadtest-aghata.saj6.softplan.com.br
   http:
   - match:
     - uri:

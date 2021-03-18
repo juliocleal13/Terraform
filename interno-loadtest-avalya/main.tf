@@ -1,3 +1,5 @@
+
+
 resource "kubernetes_namespace" "tools" {
   metadata {
     name = var.namespace_tools
@@ -5,7 +7,7 @@ resource "kubernetes_namespace" "tools" {
 }
 
 
-resource "kubernetes_secret" "unjregistry" {
+resource "kubernetes_secret" "unjregistry_tools" {
   metadata {
     name = var.docker_registry_name
     namespace = var.namespace_tools
@@ -26,16 +28,21 @@ DOCKER
   type = "kubernetes.io/dockerconfigjson"
 }
 
-# # falta:
+# # feito:
+# metallb
 # istio
+# tiller
+# adicionar rancher 
+# nfs
+## falta
 # postgres
 # keycloak
 # rabbitmq
 # x509-exporter
 # logstash
 # fluentbit
-# metallb
-# nfs
+# habilitar monitoramento
+
 # metric-server
 
 # # 

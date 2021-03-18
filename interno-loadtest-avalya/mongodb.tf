@@ -3,6 +3,7 @@ resource "helm_release" "mongodb-tools" {
     namespace  = kubernetes_namespace.tools.metadata[0].name
     repository = "https://charts.bitnami.com/bitnami"
     chart      = "mongodb"
+    version    = "7.8.10"
 
     set {
         name = "auth.enabled"
