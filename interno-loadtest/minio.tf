@@ -1,0 +1,35 @@
+resource "helm_release" "minio-tools" {
+    name       = "minio-${var.namespace_tools}"
+    namespace  = kubernetes_namespace.tools.metadata[0].name
+    repository = "https://helm.min.io/"
+    chart      = "minio"
+
+    set {
+        name = "persistence.size"
+        value = var.minio_size
+    }
+}
+
+resource "kubectl_manifest" "minio-virtualservice" {
+    yaml_body = <<YAML
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: minio-${var.namespace_tools}
+  namespace: ${var.namespace_tools}
+spec:
+  gateways:
+  - tj-istio-gateway.istio-system.svc.cluster.local
+  hosts:
+  - minio-${var.namespace_tools}.saj6.softplan.com.br
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: minio-${var.namespace_tools}
+        port:
+          number: 9000
+YAML
+}
