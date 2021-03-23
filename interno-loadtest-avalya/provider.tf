@@ -1,5 +1,5 @@
 provider "kubernetes" {
-  config_path    = "/home/juliocleal/Projetos/kube/interno-loadtest-avalya.conf"
+  config_path    = "/home/juliocleal/Projetos/kube/interno-loadtest-novo.conf"
 }
 
 provider "kubectl" {
@@ -8,6 +8,6 @@ provider "kubectl" {
 
 provider "helm" {
   kubernetes {
-    config_path = "/home/juliocleal/Projetos/kube/interno-loadtest-avalya.conf"
+    config_path = "/home/juliocleal/Projetos/kube/interno-loadtest-novo.conf"
   }
 }

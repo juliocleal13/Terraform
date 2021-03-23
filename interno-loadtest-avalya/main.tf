@@ -28,22 +28,4 @@ DOCKER
   type = "kubernetes.io/dockerconfigjson"
 }
 
-# # feito:
-# metallb
-# istio
-# tiller
-# adicionar rancher 
-# nfs
-## falta
-# postgres
-# keycloak
-# rabbitmq
-# x509-exporter
-# logstash
-# fluentbit
-# habilitar monitoramento
-
-# metric-server
-
-# # 
 

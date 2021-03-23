@@ -1,6 +1,6 @@
 variable "namespace_tools" {
   type = string
-  default = "tools"
+  default = "tools-terraform5"
 }
 
 variable "docker_registry_name" {
