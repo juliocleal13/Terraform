@@ -44,6 +44,22 @@ variable "keycloak_repository" {
   default = "docker-unj-repo.softplan.com.br/unj/unj-login-keycloak"
 }
 
+variable "keycloak_db_user" {
+  type = string
+}
+
+variable "keycloak_db_password" {
+  type = string
+}
+
+variable "keycloak_admin_user" {
+  type = string
+}
+
+variable "keycloak_admin_password" {
+  type = string
+}
+
 #nfs
 variable "nfs_server_ip" {
   type = string
