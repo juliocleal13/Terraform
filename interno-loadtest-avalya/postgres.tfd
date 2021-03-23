@@ -6,7 +6,7 @@ resource "helm_release" "postgres-tools" {
 
     set {
         name = "persistence.size"
-        value = var.postgres_size
+        value = var.postgresql_size
     }
 
     set {
