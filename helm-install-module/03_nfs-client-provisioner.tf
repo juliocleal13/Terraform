@@ -1,4 +1,5 @@
 resource "helm_release" "nfs-client-provisioner" {
+    count = var.install_nfs == true ? 1 : 0
     name       = "nfs-client-profisioner"
     namespace  = "kube-system"
     repository = "https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/"

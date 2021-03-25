@@ -1,4 +1,5 @@
 resource "helm_release" "postgres-tools" {
+    count = var.install_postgresql == true ? 1 : 0
     name       = "postgres-${var.namespace_tools}"
     namespace  = kubernetes_namespace.tools.metadata[0].name
     repository = "https://charts.bitnami.com/bitnami"

@@ -1,1 +1,0 @@
-$(kubectl get secret --namespace tools-terraform5 rabbitmq-tools -o jsonpath="{.data.rabbitmq-password}" | base64 --decode)"

@@ -1,4 +1,5 @@
 resource "helm_release" "redis_tools" {
+    count = var.install_redis == true ? 1 : 0
     name       = "redis-${var.namespace_tools}"
     namespace  = kubernetes_namespace.tools.metadata[0].name
     repository = "https://charts.bitnami.com/bitnami"
@@ -31,7 +32,7 @@ resource "helm_release" "redis_tools" {
     }
     
     provisioner "local-exec" {
-        command = "echo $(kubectl get secret --namespace ${kubernetes_namespace.tools.metadata[0].name} ${helm_release.redis_tools.name} -o jsonpath={.data.redis-password} | base64 --decode) >> redis-password.txt"
+        command = "echo $(kubectl get secret --namespace ${kubernetes_namespace.tools.metadata[0].name} ${self.name} -o jsonpath={.data.redis-password} | base64 --decode) >> redis-password.txt"
     }
     
 }
