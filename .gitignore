@@ -6,7 +6,7 @@
 *.tfstate.*
 *.tfvars
 *.tfvars.*
-redis-password.*
+*-password.*
 
 # Crash log files
 crash.log
