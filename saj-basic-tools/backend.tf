@@ -1,6 +1,6 @@
 terraform {
   backend "local" {
-    path = "./interno-loadtest.tfstate"
+    path = "./saj-tools.tfstate"
   }
 }
 
